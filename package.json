@@ -1,0 +1,12 @@
+{
+  "name": "express0705",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vanpho93/express0705.git",
+  "author": "Van Pho Nguyen <vanpho02@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
