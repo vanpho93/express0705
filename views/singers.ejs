@@ -23,7 +23,11 @@
           <% singers.forEach((singer, index) => { %>
             <tr>
               <td><%= index + 1 %></td>
-              <td><%= singer.name %></td>
+              <% if (singer.isFamous) { %>
+                <td style="color: green"><%= singer.name %></td>
+              <%} else {%>
+                <td style="color: red"><%= singer.name %></td>
+              <% } %>
               <td><img src="<%= singer.image %>" alt=""></td>
               <td><a href="<%= singer.link %>"><%= singer.name %></a></td>
               <td>

@@ -7,18 +7,19 @@ reload(app);
 app.set('view engine', 'ejs');
 
 class Singer {
-    constructor(name, image, link) {
+    constructor(name, isFamous, image, link) {
         this.id = Math.round(Math.random() * 10000) + '';
         this.name = name;
         this.image = image;
         this.link = link;
+        this.isFamous = isFamous;
     }
 }
 
 const singers = [
-    new Singer('JayKii', 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/0/b/0b2ec92891e0082881fa4608ac1faf8e_1512452640.jpg', 'https://mp3.zing.vn/nghe-si/JayKii'),
-    new Singer('Sara Lưu', 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/5/a/b/9/5ab9e37a5d36cca1884d75cd5db5e2d5.jpg', 'https://mp3.zing.vn/nghe-si/luu-ngoc-duyen'),
-    new Singer('OSAD', 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/9/9/6/2/9962b429d47f3382523c5691e1a6c337.jpg', 'https://mp3.zing.vn/nghe-si/OSAD'),
+    new Singer('JayKii', false, 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/0/b/0b2ec92891e0082881fa4608ac1faf8e_1512452640.jpg', 'https://mp3.zing.vn/nghe-si/JayKii'),
+    new Singer('Sara Lưu', true, 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/5/a/b/9/5ab9e37a5d36cca1884d75cd5db5e2d5.jpg', 'https://mp3.zing.vn/nghe-si/luu-ngoc-duyen'),
+    new Singer('OSAD', false, 'https://zmp3-photo.zadn.vn/thumb/240_240/avatars/9/9/6/2/9962b429d47f3382523c5691e1a6c337.jpg', 'https://mp3.zing.vn/nghe-si/OSAD'),
 ];
 
 app.get('/learn', (req, res) => {
