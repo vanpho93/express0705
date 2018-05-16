@@ -29,6 +29,12 @@ app.get('/singers', (req, res) => {
     res.render('singers', { singers });
 });
 
+app.get('/remove/:id', (req, res) => {
+    const index = singers.findIndex(singer => singer.id === req.params.id);
+    singers.splice(index, 1);
+    res.redirect('/singers');
+});
+
 /*
     app.get('/', (req, res) => {
         // res.sendFile(__dirname + '/public/a.html');
