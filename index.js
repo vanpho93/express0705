@@ -1,9 +1,19 @@
 const express = require('express');
+const reload = require('reload');
 
 const app = express();
+reload(app);
+
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/a.html');
+    // res.sendFile(__dirname + '/public/a.html');
+    res.render('home');
+});
+
+app.get('/learn', (req, res) => {
+    // res.sendFile(__dirname + '/public/a.html');
+    res.render('learn');
 });
 
 app.get('/chao/:name', (req, res) => {
