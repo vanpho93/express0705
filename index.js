@@ -1,12 +1,14 @@
 const express = require('express');
-const reload = require('reload');
 const { urlencoded } = require('body-parser');
 
 const app = express();
 
 app.use(urlencoded({ extended: false }));
 
-reload(app);
+if (process.env.NODE_ENV !== 'production') {
+    const reload = require('reload');
+    reload(app);
+}
 
 app.set('view engine', 'ejs');
 
@@ -83,4 +85,4 @@ app.get('/remove/:id', (req, res) => {
         res.send('Ket qua = ' + kq);
     });
 */
-app.listen(3000, () => console.log('Server started'));
+app.listen(process.env.PORT || 3000, () => console.log('Server started'));
