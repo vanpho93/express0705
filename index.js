@@ -30,6 +30,8 @@ app.get('/singers', (req, res) => {
     res.render('singers', { singers });
 });
 
+app.get('/add', (req, res) => res.render('create'));
+
 app.get('/remove/:id', (req, res) => {
     const index = singers.findIndex(singer => singer.id === req.params.id);
     singers.splice(index, 1);
