@@ -13,22 +13,22 @@
 <body>
     <div class="container">
         <a href="/singers">Show all singers</a>
-        <h1>Update Singer OSAD</h1>
-        <form action="/update/id-nao-do" method="post" class="form-group">
+        <h1>Update Singer <%= singer.name %></h1>
+        <form action="/update/<%= singer.id %>" method="post" class="form-group">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control" name="name" value="OSAD">
+                <input type="text" class="form-control" name="name" value="<%= singer.name %>">
             </div>
             <div class="form-group">
                 <label for="">Link</label>
-                <input type="text" class="form-control" name="link" value="link-nao-do">
+                <input type="text" class="form-control" name="link" value="<%= singer.link %>">
             </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="text" class="form-control" name="image" value="link-nao-do">
+                <input type="text" class="form-control" name="image" value="<%= singer.image %>">
             </div>
             <br>
-            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/avatars/9/9/6/2/9962b429d47f3382523c5691e1a6c337.jpg" />
+            <img src="<%= singer.image %>" />
             <br>
             <br>
             <button class="btn btn-success">Update</button>

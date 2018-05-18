@@ -44,8 +44,8 @@ app.post('/add', (req, res) => {
 });
 
 app.get('/update/:id', (req, res) => {
-    // render dung singer
-    res.render('update');
+    const singer = singers.find(s => s.id === req.params.id);
+    res.render('update', { singer });
 });
 
 app.post('/update/:id', (req, res) => {
