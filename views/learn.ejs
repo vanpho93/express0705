@@ -13,4 +13,6 @@
 <% } else { %>
     <p>Ban ko phai la admin</p>
 <% } %>
-<script src="reload/reload.js"></script>
+<% if (isDev) { %>
+    <script src="reload/reload.js"></script>
+<% } %>

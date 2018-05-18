@@ -5,6 +5,7 @@ const app = express();
 
 app.use(urlencoded({ extended: false }));
 
+app.locals.isDev = process.env.NODE_ENV !== 'production';
 if (process.env.NODE_ENV !== 'production') {
     const reload = require('reload');
     reload(app);
