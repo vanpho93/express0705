@@ -10,11 +10,6 @@ reload(app);
 
 app.set('view engine', 'ejs');
 
-app.post('/add', (req, res) => {
-    console.log(req.body);
-    res.send('Hello.');
-});
-
 class Singer {
     constructor(name, isFamous, image, link) {
         this.id = Math.round(Math.random() * 10000) + '';
@@ -40,6 +35,22 @@ app.get('/singers', (req, res) => {
 });
 
 app.get('/add', (req, res) => res.render('create'));
+
+app.post('/add', (req, res) => {
+    const { name, image, link } = req.body;
+    const singer = new Singer(name, false, image, link);
+    singers.push(singer);
+    res.redirect('/singers');
+});
+
+app.get('/update/:id', (req, res) => {
+    // render dung singer
+    res.render('update');
+});
+
+app.post('/update/:id', (req, res) => {
+    // update duoc singer
+});
 
 app.get('/remove/:id', (req, res) => {
     const index = singers.findIndex(singer => singer.id === req.params.id);
