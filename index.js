@@ -1,10 +1,19 @@
 const express = require('express');
 const reload = require('reload');
+const { urlencoded } = require('body-parser');
 
 const app = express();
+
+app.use(urlencoded({ extended: false }));
+
 reload(app);
 
 app.set('view engine', 'ejs');
+
+app.post('/add', (req, res) => {
+    console.log(req.body);
+    res.send('Hello.');
+});
 
 class Singer {
     constructor(name, isFamous, image, link) {
