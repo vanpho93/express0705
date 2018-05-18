@@ -45,15 +45,23 @@ app.post('/add', (req, res) => {
 
 app.get('/update/:id', (req, res) => {
     const singer = singers.find(s => s.id === req.params.id);
+    if (!singer) return res.send('Khong tim thay singer');
     res.render('update', { singer });
 });
 
 app.post('/update/:id', (req, res) => {
-    // update duoc singer
+    const singer = singers.find(s => s.id === req.params.id);
+    if (!singer) return res.send('Khong tim thay singer');
+    const { name, link, image } = req.body;
+    singer.name = name;
+    singer.image = image;
+    singer.link = link;
+    res.redirect('/singers');
 });
 
 app.get('/remove/:id', (req, res) => {
     const index = singers.findIndex(singer => singer.id === req.params.id);
+    if (index === -1) return res.send('Khong tim thay singer');
     singers.splice(index, 1);
     res.redirect('/singers');
 });
